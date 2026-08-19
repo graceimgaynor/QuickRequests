@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TD SYNNEX Developer Software Request Portal</title>
+  <style>
+    :root{
+      --td-teal:#005758; --td-cyan:#08BED5; --ink:#072b2c; --muted:#5f7475; --bg:#f5fbfb; --card:#ffffff; --line:#d8eeee; --gold:#c7f35b;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);}
+    header{background:linear-gradient(135deg,var(--td-teal),#023a3b 58%,#021f20);color:white;padding:42px 24px 34px;position:relative;overflow:hidden}
+    header:after{content:"";position:absolute;right:-80px;top:-90px;width:300px;height:300px;border-radius:50%;background:rgba(8,190,213,.22);box-shadow:-160px 130px 0 rgba(199,243,91,.10)}
+    .wrap{max-width:1140px;margin:auto;position:relative;z-index:1}.brand{font-size:24px;letter-spacing:.08em;font-weight:800}.brand span{color:var(--td-cyan)}
+    h1{font-size:42px;line-height:1.08;margin:18px 0 10px}.sub{font-size:18px;max-width:860px;color:#d9f6f7}.pillbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:10px 14px;border-radius:999px;font-size:14px}
+    nav{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.tabs{max-width:1140px;margin:auto;display:flex;gap:8px;overflow:auto;padding:10px 16px}.tab{border:0;background:#eefafa;color:var(--td-teal);padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}.tab.active{background:var(--td-teal);color:white}
+    main{max-width:1140px;margin:26px auto;padding:0 16px 60px}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(0,87,88,.08)}
+    .card h3{margin:0 0 8px;font-size:20px}.card p{color:var(--muted);line-height:1.45}.badge{display:inline-block;background:#e6fbfe;color:#00616a;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;margin:3px}.must{border-top:5px solid var(--td-cyan)}.nice{border-top:5px solid var(--gold)}.risk{border-top:5px solid #ffb454}
+    a{color:#007d8d;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}.btn{display:inline-block;margin-top:10px;background:var(--td-teal);color:white!important;padding:10px 14px;border-radius:10px;text-decoration:none}.btn.secondary{background:#e6fbfe;color:var(--td-teal)!important}.accordion{margin:14px 0;border:1px solid var(--line);border-radius:14px;background:white;overflow:hidden}.acc-head{padding:16px 18px;background:#f0fbfc;font-weight:800;cursor:pointer;display:flex;justify-content:space-between}.acc-body{display:none;padding:18px;line-height:1.55}.copybox{background:#073536;color:#eaffff;border-radius:16px;padding:18px;white-space:pre-wrap;line-height:1.5}.copyBtn{float:right;background:var(--td-cyan);border:0;color:#003335;font-weight:800;padding:8px 12px;border-radius:10px;cursor:pointer}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden}th,td{padding:13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eefafa;color:var(--td-teal)}.score{font-weight:800;color:var(--td-teal)}
+    footer{text-align:center;color:var(--muted);padding:24px}.heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.heroActions a{background:white;color:var(--td-teal);padding:12px 16px;border-radius:12px}.heroActions a.alt{background:var(--td-cyan);color:#003335}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}h1{font-size:32px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">TD <span>SYNNEX</span></div>
+    <h1>Developer Software & Workstation Request</h1>
+    <p class="sub">A polished, manager-ready request page for building analytics, automation, Power BI dashboards, Python workflows, and Copilot-style AI solutions in an enterprise environment.</p>
+    <div class="pillbar"><div class="pill">Business analytics</div><div class="pill">FP&A enablement</div><div class="pill">Power BI</div><div class="pill">Python automation</div><div class="pill">AI agents</div><div class="pill">Enterprise governed</div></div>
+    <div class="heroActions"><a href="#request" onclick="showTab('request')">View request package</a><a class="alt" href="#links" onclick="showTab('links')">Open software links</a></div>
+  </div>
+</header>
+<nav><div class="tabs">
+  <button class="tab active" id="tab-request" onclick="showTab('request')">Request Package</button>
+  <button class="tab" id="tab-software" onclick="showTab('software')">Software Stack</button>
+  <button class="tab" id="tab-links" onclick="showTab('links')">Websites & Links</button>
+  <button class="tab" id="tab-justification" onclick="showTab('justification')">Business Justification</button>
+  <button class="tab" id="tab-plan" onclick="showTab('plan')">90-Day Plan</button>
+</div></nav>
+<main>
+<section class="section active" id="request">
+  <div class="grid">
+    <div class="card must"><h3>Primary Ask</h3><p><b>Developer-ready laptop</b> with 32 GB RAM, 1 TB SSD, Windows 11 Enterprise, docking station, and dual monitors.</p><span class="badge">Required</span><span class="badge">Avoids repeat requests</span></div>
+    <div class="card must"><h3>Core Software</h3><p>VS Code, Python, Git, Power BI Desktop, approved package access, and browser-based Microsoft cloud tools.</p><span class="badge">Analytics</span><span class="badge">Automation</span></div>
+    <div class="card nice"><h3>Advanced Enablement</h3><p>Copilot Studio, GitHub Enterprise or approved GitHub access, Microsoft Fabric workspace access, and Azure AI access if permitted.</p><span class="badge">AI agents</span><span class="badge">Governed innovation</span></div>
+  </div>
+  <div class="accordion"><div class="acc-head" onclick="toggle('acc1')">Recommended hardware specification <span>+</span></div><div class="acc-body" id="acc1"><ul><li>Intel Core Ultra 7 / AMD Ryzen 7 equivalent or better</li><li>32 GB RAM minimum</li><li>1 TB SSD</li><li>Windows 11 Enterprise</li><li>USB-C docking station</li><li>Two external monitors</li><li>Admin-approved ability to install/update packages through company-approved channels</li></ul></div></div>
+  <div class="accordion"><div class="acc-head" onclick="toggle('acc2')">Why this should be one request <span>+</span></div><div class="acc-body" id="acc2">This consolidates the full analytics developer environment into one governed request: Power BI for dashboards, Python for analysis and automation, Git for version control, and Microsoft AI tools for responsible agent experimentation. The goal is to reduce fragmented tickets and create a repeatable, compliant setup for business analytics projects.</div></div>
+</section>
+<section class="section" id="software">
+  <div class="grid">
+    <div class="card must"><h3>Visual Studio Code</h3><p>Primary code editor for Python, notebooks, markdown, Git, and light web app development.</p><a class="btn" href="https://code.visualstudio.com/docs/enterprise/overview" target="_blank">Enterprise docs</a></div>
+    <div class="card must"><h3>Python 3.x</h3><p>Core programming language for data cleaning, econometrics, forecasting, automation, and prototypes.</p><a class="btn" href="https://www.python.org/downloads/windows/" target="_blank">Python downloads</a></div>
+    <div class="card must"><h3>Power BI Desktop</h3><p>Dashboard authoring, Power Query, DAX, data modeling, and interactive reporting.</p><a class="btn" href="https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop" target="_blank">Microsoft Learn</a></div>
+    <div class="card must"><h3>Git</h3><p>Version control for scripts, notebooks, agent prompts, and documentation.</p><a class="btn" href="https://git-scm.com/download/win" target="_blank">Git for Windows</a></div>
+    <div class="card nice"><h3>GitHub Enterprise / GitHub Desktop</h3><p>Repository hosting, collaboration, issue tracking, and governed development workflow.</p><a class="btn" href="https://github.com/enterprise" target="_blank">GitHub Enterprise</a></div>
+    <div class="card nice"><h3>Microsoft Fabric</h3><p>Workspace for modern analytics, data engineering, reporting, and governed BI experimentation.</p><a class="btn" href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank">Microsoft Fabric</a></div>
+    <div class="card nice"><h3>Copilot Studio</h3><p>Build internal agents for Q&A, process support, calculators, and business workflow assistance.</p><a class="btn" href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio" target="_blank">Copilot Studio</a></div>
+    <div class="card nice"><h3>Azure AI Foundry</h3><p>Explore AI application development, model orchestration, and enterprise AI prototyping if approved.</p><a class="btn" href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank">Azure AI Foundry</a></div>
+    <div class="card risk"><h3>Python Packages</h3><p>Request approved package access for pandas, numpy, statsmodels, scikit-learn, matplotlib, seaborn, plotly, openpyxl, pyarrow, jupyter.</p><a class="btn" href="https://pypi.org/" target="_blank">PyPI reference</a></div>
+  </div>
+</section>
+<section class="section" id="links">
+  <table><thead><tr><th>Resource</th><th>Why included</th><th>Link</th></tr></thead><tbody>
+    <tr><td>Microsoft Developer</td><td>Central hub for Microsoft developer tools, cloud, docs, samples, and communities.</td><td><a href="https://developer.microsoft.com/en-us/" target="_blank">Open Microsoft Developer</a></td></tr>
+    <tr><td>VS Code Enterprise</td><td>Shows IT that VS Code can be managed with policies, extensions, telemetry controls, and deployment options.</td><td><a href="https://code.visualstudio.com/docs/enterprise/overview" target="_blank">Open VS Code Enterprise Docs</a></td></tr>
+    <tr><td>VS Code Python</td><td>Explains Python support in VS Code including IntelliSense, debugging, linting, testing, and environments.</td><td><a href="https://code.visualstudio.com/docs/languages/python" target="_blank">Open Python in VS Code</a></td></tr>
+    <tr><td>Power BI Desktop</td><td>Official Microsoft documentation for downloading and installing Power BI Desktop.</td><td><a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop" target="_blank">Open Power BI Desktop Docs</a></td></tr>
+    <tr><td>Microsoft Fabric</td><td>Modern Microsoft analytics platform for data, BI, and AI-enabled workflows.</td><td><a href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank">Open Microsoft Fabric</a></td></tr>
+    <tr><td>Copilot Studio</td><td>Microsoft tool for creating custom agents and copilots.</td><td><a href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio" target="_blank">Open Copilot Studio</a></td></tr>
+    <tr><td>GitHub Enterprise</td><td>Enterprise software collaboration, version control, and repository management.</td><td><a href="https://github.com/enterprise" target="_blank">Open GitHub Enterprise</a></td></tr>
+    <tr><td>Azure AI Foundry</td><td>Microsoft AI application development platform for approved AI prototyping.</td><td><a href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank">Open Azure AI Foundry</a></td></tr>
+  </tbody></table>
+</section>
+<section class="section" id="justification">
+  <button class="copyBtn" onclick="copyText('justText')">Copy</button>
+  <div class="copybox" id="justText">Business Justification
+
+I am requesting a consolidated developer and analytics workstation setup to support business intelligence, FP&A-oriented analysis, Power BI dashboard development, Python-based automation, and responsible AI / Copilot agent prototyping. This environment would allow me to move from static analysis into repeatable, governed workflows that can support executive reporting, data quality validation, forecasting, automation of recurring analysis, and interactive business tools.
+
+The requested setup includes a 32 GB RAM laptop with 1 TB SSD, Windows 11 Enterprise, docking station, dual monitors, Visual Studio Code, Python 3.x, Git, Power BI Desktop, approved Python package access, and access to governed Microsoft tools such as Fabric, Copilot Studio, GitHub Enterprise, and Azure AI where permitted.
+
+Consolidating the request now will reduce future individual software requests, create a more secure and standardized development environment, and ensure that analytics work is version-controlled, reproducible, and aligned with enterprise technology standards. This will directly support projects such as attrition analytics, employee learning dashboards, PVI calculator development, workflow automation, and AI-enabled business communication tools.</div>
+</section>
+<section class="section" id="plan">
+  <div class="grid">
+    <div class="card"><h3>Days 1-30</h3><p>Set up environment, validate software access, rebuild Python fundamentals, and create one reproducible analysis script.</p><div class="score">Output: working Python + Power BI baseline</div></div>
+    <div class="card"><h3>Days 31-60</h3><p>Build one dashboard and one automated analysis workflow using clean data, documented assumptions, and version control.</p><div class="score">Output: dashboard + reusable workflow</div></div>
+    <div class="card"><h3>Days 61-90</h3><p>Prototype one internal-facing AI agent or calculator, such as a PVI calculator, project assistant, or analytics Q&A tool.</p><div class="score">Output: controlled AI prototype</div></div>
+  </div>
+</section>
+</main>
+<footer>TD SYNNEX-inspired internal request concept. Confirm final branding, software eligibility, and approval workflow with company policy before submission.</footer>
+<script>
+function showTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('tab-'+id).classList.add('active');location.hash=id;}
+function toggle(id){const e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);alert('Copied to clipboard');}
+if(location.hash){const id=location.hash.replace('#',''); if(document.getElementById(id)) showTab(id);}
+</script>
+</body></html>
