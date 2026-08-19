@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TD SYNNEX Developer Software Request</title>
+  <style>
+    :root{
+      --td-teal:#005758; --td-teal-2:#007a7c; --td-cyan:#08bed5; --td-navy:#082b3f; --citron:#c7f35b;
+      --bg:#f4fbfb; --panel:#ffffff; --ink:#073536; --muted:#5d7374; --line:#d6eeee; --warn:#ffb454;
+      --shadow:0 14px 35px rgba(0,87,88,.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+    header{background:radial-gradient(circle at top right,rgba(8,190,213,.35),transparent 28%),linear-gradient(135deg,var(--td-teal),#052d2e 72%,#011b1c);color:white;padding:44px 24px 34px;overflow:hidden;position:relative}
+    header:before{content:"";position:absolute;left:-60px;bottom:-120px;width:260px;height:260px;border-radius:50%;background:rgba(199,243,91,.12)}
+    .wrap{max-width:1200px;margin:auto;position:relative;z-index:1}.brand{font-size:25px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.brand span{color:var(--td-cyan)}
+    h1{font-size:44px;line-height:1.05;margin:18px 0 10px;max-width:920px}.sub{font-size:18px;line-height:1.5;color:#d8f9fa;max-width:930px}.hero-grid{display:grid;grid-template-columns:1.6fr .8fr;gap:22px;align-items:stretch;margin-top:26px}
+    .hero-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);border-radius:20px;padding:20px;backdrop-filter:blur(6px)}
+    .metric{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.metric div{background:rgba(255,255,255,.12);border-radius:14px;padding:12px}.metric strong{display:block;font-size:22px;color:white}.metric span{font-size:12px;color:#d8f9fa}
+    nav{position:sticky;top:0;background:white;border-bottom:1px solid var(--line);z-index:10}.tabs{max-width:1200px;margin:auto;display:flex;gap:8px;padding:10px 16px;overflow:auto}.tab{border:0;border-radius:999px;background:#e9f9fa;color:var(--td-teal);font-weight:800;padding:11px 15px;white-space:nowrap;cursor:pointer}.tab.active{background:var(--td-teal);color:white}
+    main{max-width:1200px;margin:26px auto 64px;padding:0 16px}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:0 0 10px;font-size:21px}.card p{color:var(--muted);line-height:1.45}.topline{border-top:5px solid var(--td-cyan)}.nice{border-top:5px solid var(--citron)}.warn{border-top:5px solid var(--warn)}
+    .badge{display:inline-block;background:#e6fbfe;color:#00616a;border:1px solid #c9f3f7;border-radius:999px;padding:6px 10px;margin:4px 4px 0 0;font-size:12px;font-weight:800}.badge.dark{background:#073536;color:#eaffff;border-color:#073536}.badge.green{background:#efffde;color:#375700;border-color:#d6f7a3}.badge.orange{background:#fff4e3;color:#764300;border-color:#ffe0af}
+    a{color:#007d8d;font-weight:800;text-decoration:none}a:hover{text-decoration:underline}.btn{display:inline-block;background:var(--td-teal);color:white!important;border-radius:12px;padding:10px 14px;margin-top:8px}.btn.alt{background:#e6fbfe;color:var(--td-teal)!important}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}.toolbar input,.toolbar select{border:1px solid var(--line);padding:12px;border-radius:12px;background:white;min-width:210px}.small{font-size:13px;color:var(--muted)}
+    table{width:100%;border-collapse:collapse;background:white;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}th,td{padding:13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px}th{background:#e9f9fa;color:var(--td-teal);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.priority{font-weight:900;color:var(--td-teal)}
+    .copybox{background:#052d2e;color:#eaffff;border-radius:18px;padding:20px;line-height:1.55;white-space:pre-wrap}.copyBtn{background:var(--td-cyan);color:#073536;border:0;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer;float:right;margin-bottom:10px}.checklist li{margin:8px 0}.code{font-family:Consolas,monospace;background:#052d2e;color:#dff;padding:12px;border-radius:12px;overflow:auto}.phase{border-left:5px solid var(--td-cyan);padding-left:14px;margin:14px 0}.footer{text-align:center;color:var(--muted);padding:28px}.note{background:#fff8e9;border:1px solid #ffe1a8;color:#674100;border-radius:16px;padding:16px;margin:16px 0}
+    @media(max-width:900px){.grid,.two,.hero-grid{grid-template-columns:1fr}h1{font-size:33px}.metric{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">TD <span>SYNNEX</span></div>
+    <h1>Enterprise Developer Software Request</h1>
+    <p class="sub">A manager-ready software and workstation request for analytics development, React applications, Python workflows, APIs, Power BI dashboards, agent prototypes, and governed enterprise experimentation.</p>
+    <div class="hero-grid">
+      <div class="hero-card">
+        <strong>Purpose</strong>
+        <p class="sub" style="font-size:15px;margin:8px 0 0">Consolidate hardware, developer tools, application frameworks, package managers, servers, VS Code extensions, and analytics/AI platforms into one thoughtful request instead of multiple fragmented tickets.</p>
+        <div class="metric"><div><strong>1</strong><span>single bundled request</span></div><div><strong>6</strong><span>development categories</span></div><div><strong>90</strong><span>day delivery plan</span></div></div>
+      </div>
+      <div class="hero-card">
+        <strong>Recommended ask</strong>
+        <p class="sub" style="font-size:15px;margin:8px 0 0">32 GB RAM laptop, 1 TB SSD, VS Code, Python, Node.js LTS, Git, Power BI Desktop, Docker approval review, Postman, and approved package access.</p>
+      </div>
+    </div>
+  </div>
+</header>
+<nav><div class="tabs">
+  <button class="tab active" id="tab-summary" onclick="showTab('summary')">Executive Summary</button>
+  <button class="tab" id="tab-software" onclick="showTab('software')">Full Software List</button>
+  <button class="tab" id="tab-vscode" onclick="showTab('vscode')">VS Code Setup</button>
+  <button class="tab" id="tab-links" onclick="showTab('links')">Official Links</button>
+  <button class="tab" id="tab-justification" onclick="showTab('justification')">Copy Justification</button>
+  <button class="tab" id="tab-plan" onclick="showTab('plan')">90-Day Plan</button>
+</div></nav>
+<main>
+<section class="section active" id="summary">
+  <div class="grid">
+    <div class="card topline"><h3>Hardware</h3><p>Developer-ready Windows workstation for Power BI, Excel, VS Code, Teams, browser tools, local servers, and data workflows.</p><span class="badge dark">32 GB RAM</span><span class="badge dark">1 TB SSD</span><span class="badge dark">Dual monitors</span></div>
+    <div class="card topline"><h3>Core Developer Tools</h3><p>VS Code, Python, Node.js LTS, Git, npm/pnpm, Postman, and package access for reproducible analysis and web development.</p><span class="badge">Python</span><span class="badge">Node</span><span class="badge">React</span><span class="badge">Git</span></div>
+    <div class="card nice"><h3>Enterprise Platforms</h3><p>Power BI, Microsoft Fabric, Copilot Studio, Power Automate, GitHub Enterprise, and approved Azure AI access where permitted.</p><span class="badge green">Power BI</span><span class="badge green">Fabric</span><span class="badge green">Copilot Studio</span></div>
+  </div>
+  <div class="note"><b>Enterprise framing:</b> This request is not just for learning code. It is for creating governed, repeatable analytics workflows, dashboard prototypes, internal tools, calculators, and AI-assisted business solutions aligned with TD SYNNEX standards.</div>
+  <div class="two">
+    <div class="card"><h3>What this enables</h3><ul class="checklist"><li>Build React front ends for internal calculators and learning portals.</li><li>Create Python pipelines for data cleaning, forecasting, attrition analytics, and PVI analysis.</li><li>Develop FastAPI services for model-backed applications.</li><li>Build Power BI dashboards with clean data models.</li><li>Use Git for version control and documentation.</li><li>Experiment responsibly with Copilot Studio and approved AI tools.</li></ul></div>
+    <div class="card"><h3>Approval logic</h3><ul class="checklist"><li><b>Required:</b> tools needed immediately to perform developer work.</li><li><b>Recommended:</b> tools that reduce future requests and improve productivity.</li><li><b>Approval review:</b> tools that may require security, licensing, or governance evaluation.</li><li><b>Cloud access:</b> request as role-based access, not blanket admin permission.</li></ul></div>
+  </div>
+</section>
+<section class="section" id="software">
+  <div class="toolbar">
+    <input id="searchBox" placeholder="Search software, purpose, category..." onkeyup="filterTable()" />
+    <select id="categoryFilter" onchange="filterTable()"><option value="">All categories</option><option>Core</option><option>Frontend</option><option>Backend/API</option><option>Data Science</option><option>BI</option><option>AI</option><option>DevOps</option><option>Docs</option><option>VS Code Extension</option></select>
+    <select id="priorityFilter" onchange="filterTable()"><option value="">All priorities</option><option>Required</option><option>Recommended</option><option>Approval Review</option></select>
+  </div>
+  <table id="softwareTable"><thead><tr><th>Software / Package</th><th>Category</th><th>Priority</th><th>Purpose</th><th>Request wording</th></tr></thead><tbody>
+    <tr><td>Visual Studio Code</td><td>Core</td><td class="priority">Required</td><td>Primary IDE for Python, JavaScript, React, markdown, Git, notebooks, and web apps.</td><td>Install VS Code with approved extensions and enterprise settings.</td></tr>
+    <tr><td>Python 3.x</td><td>Core</td><td class="priority">Required</td><td>Data analysis, automation, forecasting, reporting, APIs, and prototypes.</td><td>Install current company-approved Python 3.x distribution.</td></tr>
+    <tr><td>pip / venv</td><td>Core</td><td class="priority">Required</td><td>Package management and isolated Python environments.</td><td>Enable approved package installation in virtual environments.</td></tr>
+    <tr><td>Jupyter</td><td>Data Science</td><td class="priority">Recommended</td><td>Interactive notebooks for analysis, documentation, and reproducible exploratory work.</td><td>Approve Jupyter support through VS Code and Python environments.</td></tr>
+    <tr><td>pandas</td><td>Data Science</td><td class="priority">Required</td><td>Data cleaning, joins, grouping, validation, and analytics workflows.</td><td>Approve pandas package access.</td></tr>
+    <tr><td>numpy</td><td>Data Science</td><td class="priority">Required</td><td>Numerical computing and array operations.</td><td>Approve numpy package access.</td></tr>
+    <tr><td>scipy</td><td>Data Science</td><td class="priority">Recommended</td><td>Scientific computing, statistics, optimization, and modeling support.</td><td>Approve scipy package access.</td></tr>
+    <tr><td>statsmodels</td><td>Data Science</td><td class="priority">Required</td><td>Regression, econometrics, time series, and statistical testing.</td><td>Approve statsmodels package access.</td></tr>
+    <tr><td>scikit-learn</td><td>Data Science</td><td class="priority">Recommended</td><td>Machine learning, feature processing, model evaluation, and prediction workflows.</td><td>Approve scikit-learn package access.</td></tr>
+    <tr><td>lifelines</td><td>Data Science</td><td class="priority">Recommended</td><td>Survival analysis and retention / attrition modeling.</td><td>Approve lifelines package access.</td></tr>
+    <tr><td>matplotlib</td><td>Data Science</td><td class="priority">Required</td><td>Static charts and technical plots.</td><td>Approve matplotlib package access.</td></tr>
+    <tr><td>seaborn</td><td>Data Science</td><td class="priority">Recommended</td><td>Statistical visualization and polished exploratory graphics.</td><td>Approve seaborn package access.</td></tr>
+    <tr><td>plotly</td><td>Data Science</td><td class="priority">Recommended</td><td>Interactive charts for dashboards and HTML reports.</td><td>Approve plotly package access.</td></tr>
+    <tr><td>openpyxl</td><td>Data Science</td><td class="priority">Required</td><td>Read/write Excel files from Python workflows.</td><td>Approve openpyxl package access.</td></tr>
+    <tr><td>pyarrow</td><td>Data Science</td><td class="priority">Recommended</td><td>Efficient local analytics formats and larger data workflows.</td><td>Approve pyarrow package access.</td></tr>
+    <tr><td>Node.js LTS</td><td>Frontend</td><td class="priority">Required</td><td>JavaScript runtime for React apps, local servers, package tooling, and development scripts.</td><td>Install Node.js LTS with npm included.</td></tr>
+    <tr><td>npm</td><td>Frontend</td><td class="priority">Required</td><td>Default JavaScript package manager included with Node.js.</td><td>Enable npm package management for approved development directories.</td></tr>
+    <tr><td>pnpm</td><td>Frontend</td><td class="priority">Recommended</td><td>Faster and more disk-efficient package manager for modern JavaScript projects.</td><td>Approve pnpm if permitted by IT policy.</td></tr>
+    <tr><td>React</td><td>Frontend</td><td class="priority">Required</td><td>Build interactive user interfaces, internal calculators, and analytics portals.</td><td>Approve React development package access.</td></tr>
+    <tr><td>react-dom</td><td>Frontend</td><td class="priority">Required</td><td>Render React applications in the browser.</td><td>Approve react-dom package access.</td></tr>
+    <tr><td>TypeScript</td><td>Frontend</td><td class="priority">Recommended</td><td>Type safety and maintainability for larger web apps.</td><td>Approve TypeScript package access.</td></tr>
+    <tr><td>Vite</td><td>Frontend</td><td class="priority">Recommended</td><td>Fast React development server and build tool.</td><td>Approve Vite for local React app development.</td></tr>
+    <tr><td>React Router</td><td>Frontend</td><td class="priority">Recommended</td><td>Routing/navigation for multi-page React applications.</td><td>Approve react-router-dom package access.</td></tr>
+    <tr><td>Material UI</td><td>Frontend</td><td class="priority">Recommended</td><td>Enterprise-ready UI components for dashboards and portals.</td><td>Approve @mui/material package access.</td></tr>
+    <tr><td>Tailwind CSS</td><td>Frontend</td><td class="priority">Recommended</td><td>Rapid styling for responsive prototypes.</td><td>Approve tailwindcss package access.</td></tr>
+    <tr><td>ESLint</td><td>Frontend</td><td class="priority">Recommended</td><td>JavaScript/TypeScript code quality checks.</td><td>Approve ESLint package and VS Code extension.</td></tr>
+    <tr><td>Prettier</td><td>Frontend</td><td class="priority">Recommended</td><td>Consistent code formatting.</td><td>Approve Prettier package and VS Code extension.</td></tr>
+    <tr><td>FastAPI</td><td>Backend/API</td><td class="priority">Recommended</td><td>Python APIs for calculators, model services, and internal tools.</td><td>Approve fastapi package access.</td></tr>
+    <tr><td>Uvicorn</td><td>Backend/API</td><td class="priority">Recommended</td><td>Local development server for FastAPI applications.</td><td>Approve uvicorn package access for local development.</td></tr>
+    <tr><td>Pydantic</td><td>Backend/API</td><td class="priority">Recommended</td><td>Data validation for Python APIs and AI workflows.</td><td>Approve pydantic package access.</td></tr>
+    <tr><td>Streamlit</td><td>Backend/API</td><td class="priority">Recommended</td><td>Quick internal analytics web apps and prototypes.</td><td>Approve streamlit if permitted.</td></tr>
+    <tr><td>Dash</td><td>Backend/API</td><td class="priority">Recommended</td><td>Python-based analytical web applications.</td><td>Approve dash if permitted.</td></tr>
+    <tr><td>Postman</td><td>Backend/API</td><td class="priority">Recommended</td><td>API testing, request collections, and debugging internal services.</td><td>Install Postman or approve web/desktop usage according to policy.</td></tr>
+    <tr><td>SQLite</td><td>Backend/API</td><td class="priority">Recommended</td><td>Lightweight local relational database for prototypes.</td><td>Approve SQLite tools where permitted.</td></tr>
+    <tr><td>PostgreSQL Client Tools</td><td>Backend/API</td><td class="priority">Approval Review</td><td>Database client for relational data development if approved systems use PostgreSQL.</td><td>Approve database client tools, not unrestricted database access.</td></tr>
+    <tr><td>Power BI Desktop</td><td>BI</td><td class="priority">Required</td><td>Dashboard authoring, Power Query, DAX, data modeling, and executive reporting.</td><td>Install Power BI Desktop.</td></tr>
+    <tr><td>DAX Studio</td><td>BI</td><td class="priority">Recommended</td><td>DAX query testing and Power BI model performance analysis.</td><td>Approve DAX Studio if permitted.</td></tr>
+    <tr><td>Tabular Editor</td><td>BI</td><td class="priority">Recommended</td><td>Advanced semantic model editing.</td><td>Approve Tabular Editor if permitted.</td></tr>
+    <tr><td>Microsoft Fabric</td><td>BI</td><td class="priority">Approval Review</td><td>Cloud analytics workspace for governed data, Power BI, and AI-enabled reporting.</td><td>Request workspace/user access if available.</td></tr>
+    <tr><td>Copilot Studio</td><td>AI</td><td class="priority">Approval Review</td><td>Build internal agents, knowledge assistants, and process support bots.</td><td>Request governed access for learning and prototype use cases.</td></tr>
+    <tr><td>Azure AI Foundry</td><td>AI</td><td class="priority">Approval Review</td><td>AI app and model orchestration experimentation if approved.</td><td>Request role-based learner/prototype access.</td></tr>
+    <tr><td>Git</td><td>DevOps</td><td class="priority">Required</td><td>Version control for scripts, apps, documentation, and reproducibility.</td><td>Install Git for Windows.</td></tr>
+    <tr><td>GitHub Enterprise / Approved GitHub</td><td>DevOps</td><td class="priority">Approval Review</td><td>Repository hosting, collaboration, issues, and code reviews.</td><td>Request approved repository access aligned to policy.</td></tr>
+    <tr><td>Docker Desktop</td><td>DevOps</td><td class="priority">Approval Review</td><td>Containerized local environments for APIs and reproducible development.</td><td>Request Docker Desktop review, license confirmation, and approved install path.</td></tr>
+    <tr><td>Windows Subsystem for Linux 2</td><td>DevOps</td><td class="priority">Approval Review</td><td>Linux-based development environment on Windows for packages, tools, and containers.</td><td>Request WSL2 if allowed by endpoint/security policy.</td></tr>
+    <tr><td>PowerShell 7</td><td>DevOps</td><td class="priority">Recommended</td><td>Modern scripting, automation, and command-line workflow.</td><td>Approve PowerShell 7 if not already installed.</td></tr>
+    <tr><td>Markdown All in One</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Documentation, project notes, READMEs, and technical writeups.</td><td>Approve VS Code extension.</td></tr>
+    <tr><td>Mermaid Markdown Preview</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Architecture diagrams and workflow visuals in markdown.</td><td>Approve VS Code extension.</td></tr>
+    <tr><td>Python Extension</td><td>VS Code Extension</td><td class="priority">Required</td><td>Python IntelliSense, execution, debugging, and environment selection.</td><td>Approve Microsoft Python extension.</td></tr>
+    <tr><td>Pylance</td><td>VS Code Extension</td><td class="priority">Required</td><td>Python language server and IntelliSense.</td><td>Approve Pylance extension.</td></tr>
+    <tr><td>Jupyter Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Notebook development inside VS Code.</td><td>Approve Jupyter extension.</td></tr>
+    <tr><td>ESLint Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>JavaScript/TypeScript linting in editor.</td><td>Approve VS Code extension.</td></tr>
+    <tr><td>Prettier Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Code formatting in editor.</td><td>Approve VS Code extension.</td></tr>
+    <tr><td>GitLens</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Git history, blame, and repository insights.</td><td>Approve GitLens if permitted.</td></tr>
+    <tr><td>Postman VS Code Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Explore and test APIs from VS Code.</td><td>Approve extension if Postman is approved.</td></tr>
+    <tr><td>Docker Extension</td><td>VS Code Extension</td><td class="priority">Approval Review</td><td>Container management inside VS Code.</td><td>Approve only if Docker Desktop is approved.</td></tr>
+  </tbody></table>
+</section>
+<section class="section" id="vscode">
+  <div class="two">
+    <div class="card topline"><h3>VS Code extension bundle</h3><ul class="checklist"><li>Microsoft Python</li><li>Pylance</li><li>Jupyter</li><li>ESLint</li><li>Prettier</li><li>GitLens</li><li>Postman</li><li>Docker</li><li>Markdown All in One</li><li>Mermaid Markdown Preview</li><li>PowerShell</li><li>Material Icon Theme</li></ul></div>
+    <div class="card nice"><h3>Recommended workspace folders</h3><ul class="checklist"><li><b>analytics-python</b> for Python analysis and notebooks</li><li><b>react-apps</b> for UI prototypes</li><li><b>api-services</b> for FastAPI services</li><li><b>powerbi-docs</b> for Power BI notes and data dictionaries</li><li><b>agent-prototypes</b> for Copilot Studio planning and prompt documentation</li></ul></div>
+  </div>
+  <div class="card"><h3>Suggested settings.json</h3><p class="small">This is a starting configuration. IT may adjust extension availability, telemetry, proxy, package registry, and security settings.</p><pre class="code">{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.defaultInterpreterPath": "python",
+  "python.analysis.typeCheckingMode": "basic",
+  "jupyter.askForKernelRestart": false,
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "markdown.preview.breaks": true
+}</pre></div>
+  <div class="card"><h3>Starter commands to validate installation</h3><pre class="code">python --version
+pip --version
+node --version
+npm --version
+git --version
+code --version</pre></div>
+</section>
+<section class="section" id="links">
+  <table><thead><tr><th>Tool</th><th>Official resource</th><th>Why it matters</th></tr></thead><tbody>
+    <tr><td>VS Code Enterprise</td><td><a href="https://code.visualstudio.com/docs/enterprise/overview" target="_blank">Open VS Code Enterprise Docs</a></td><td>Enterprise deployment and management documentation.</td></tr>
+    <tr><td>VS Code Python</td><td><a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank">Open Python in VS Code Tutorial</a></td><td>Microsoft documentation for Python setup in VS Code.</td></tr>
+    <tr><td>VS Code JavaScript</td><td><a href="https://code.visualstudio.com/Docs/languages/javascript" target="_blank">Open JavaScript in VS Code</a></td><td>Microsoft documentation for JavaScript support.</td></tr>
+    <tr><td>Node.js LTS</td><td><a href="https://nodejs.org/en/download" target="_blank">Open Node.js Download</a></td><td>Official Node.js download page.</td></tr>
+    <tr><td>React</td><td><a href="https://react.dev/" target="_blank">Open React Docs</a></td><td>Official React documentation.</td></tr>
+    <tr><td>React Quick Start</td><td><a href="https://react.dev/learn" target="_blank">Open React Learn</a></td><td>Official learning path for components, JSX, events, and state.</td></tr>
+    <tr><td>React Router</td><td><a href="https://reactrouter.com/" target="_blank">Open React Router Docs</a></td><td>Routing library for React applications.</td></tr>
+    <tr><td>Power BI Desktop</td><td><a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop" target="_blank">Open Power BI Desktop Docs</a></td><td>Official Microsoft Power BI Desktop guidance.</td></tr>
+    <tr><td>Microsoft Fabric</td><td><a href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank">Open Microsoft Fabric</a></td><td>Microsoft analytics platform.</td></tr>
+    <tr><td>Copilot Studio</td><td><a href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio" target="_blank">Open Copilot Studio</a></td><td>Microsoft platform for building custom agents.</td></tr>
+    <tr><td>Azure AI Foundry</td><td><a href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank">Open Azure AI Foundry</a></td><td>AI application development platform.</td></tr>
+    <tr><td>Postman</td><td><a href="https://www.postman.com/downloads/" target="_blank">Open Postman Downloads</a></td><td>API platform for testing and debugging APIs.</td></tr>
+    <tr><td>Docker Desktop</td><td><a href="https://docs.docker.com/desktop/setup/install/windows-install/" target="_blank">Open Docker Desktop Windows Docs</a></td><td>Docker Desktop installation and enterprise licensing considerations.</td></tr>
+    <tr><td>Git</td><td><a href="https://git-scm.com/download/win" target="_blank">Open Git for Windows</a></td><td>Version control for development projects.</td></tr>
+    <tr><td>GitHub Enterprise</td><td><a href="https://github.com/enterprise" target="_blank">Open GitHub Enterprise</a></td><td>Enterprise repository and collaboration platform.</td></tr>
+  </tbody></table>
+</section>
+<section class="section" id="justification">
+  <button class="copyBtn" onclick="copyText('biz')">Copy justification</button>
+  <div class="copybox" id="biz">Business Justification
+
+I am requesting a consolidated enterprise developer and analytics environment to support business intelligence, FP&A-oriented analysis, Power BI dashboard development, Python automation, React-based internal tools, API prototypes, and governed AI / Copilot agent experimentation.
+
+This request includes a developer-ready Windows laptop with 32 GB RAM and 1 TB SSD, Visual Studio Code, Python 3.x, Node.js LTS, npm/pnpm, Git, Power BI Desktop, Postman, approved Python and JavaScript package access, and role-based access to Microsoft Fabric, Copilot Studio, GitHub Enterprise, and Azure AI tools where company policy permits.
+
+The purpose is to avoid multiple fragmented software requests and create one standardized, secure, and repeatable environment for analytics development. This setup would support projects such as attrition analytics, Power BI dashboards, PVI calculators, React portals, FastAPI services, learning analytics, automated reporting, and internal AI assistant prototypes.
+
+I am requesting this environment under the understanding that all tools, packages, cloud access, AI usage, data handling, and external software must follow TD SYNNEX security, brand, data classification, licensing, and approval policies. Where a tool requires additional review, I am requesting evaluation rather than unrestricted access.</div>
+  <div class="card" style="margin-top:18px"><h3>Short version for ticket field</h3><p>I am requesting a complete, governed developer and analytics setup for Python, Power BI, React/Node.js, API development, version control, and approved Microsoft AI tools so I can build repeatable analytics workflows, dashboards, internal calculators, and responsible AI prototypes without submitting multiple fragmented requests.</p></div>
+</section>
+<section class="section" id="plan">
+  <div class="grid">
+    <div class="card topline"><h3>Days 1-30</h3><div class="phase"><b>Environment setup</b><p>Validate VS Code, Python, Node.js, Git, Power BI Desktop, package access, and repository workflow.</p></div><span class="badge">Output: verified dev setup</span></div>
+    <div class="card topline"><h3>Days 31-60</h3><div class="phase"><b>Analytics build</b><p>Create one Python analysis pipeline and one Power BI dashboard with documented assumptions and data quality checks.</p></div><span class="badge">Output: reproducible analytics workflow</span></div>
+    <div class="card nice"><h3>Days 61-90</h3><div class="phase"><b>Application prototype</b><p>Build one React interface connected to a Python/FastAPI calculation or analytics service, such as a PVI calculator prototype.</p></div><span class="badge green">Output: internal tool prototype</span></div>
+  </div>
+</section>
+</main>
+<div class="footer">TD SYNNEX-inspired internal request concept. Confirm approval path, brand usage, licensing, endpoint security, AI governance, and package policy before submission.</div>
+<script>
+function showTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('tab-'+id).classList.add('active');location.hash=id;}
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).innerText);alert('Copied to clipboard');}
+function filterTable(){
+  const q=document.getElementById('searchBox').value.toLowerCase();
+  const cat=document.getElementById('categoryFilter').value.toLowerCase();
+  const pri=document.getElementById('priorityFilter').value.toLowerCase();
+  document.querySelectorAll('#softwareTable tbody tr').forEach(row=>{
+    const text=row.innerText.toLowerCase();
+    const rowCat=row.cells[1].innerText.toLowerCase();
+    const rowPri=row.cells[2].innerText.toLowerCase();
+    row.style.display=(text.includes(q) && (!cat||rowCat===cat) && (!pri||rowPri===pri))?'':'none';
+  });
+}
+if(location.hash){const id=location.hash.replace('#',''); if(document.getElementById(id)) showTab(id);}
+</script>
+</body>
+</html>
