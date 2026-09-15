@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grace Gaynor | Portfolio, Projects & Business Value</title>
+
+<!-- IMPROVEMENT #10: SEO + social share meta so the link previews well anywhere -->
+<meta name="description" content="Grace Gaynor portfolio: practical analytics, responsible automation, and business tools that turn complex questions into clear, reusable decisions.">
+<meta name="theme-color" content="#005758">
+<meta property="og:title" content="Grace Gaynor | Portfolio & Business Value">
+<meta property="og:description" content="A humble, outcomes-focused portfolio of analytics, automation, and decision-support work, including the PVI Performance Advisor.">
+<meta property="og:type" content="website">
+
+<!-- IMPROVEMENT #9: one professional web font, loaded efficiently -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --t:#005758;--c:#08bed5;--l:#c7f35b;--b:#f4fbfb;--i:#073536;--m:#5e7475;
+  --x:#d7eeee;--warn:#ffb454;--sh:0 12px 30px rgba(0,87,88,.1);
+  /* IMPROVEMENT: spacing + radius tokens so sizing stays consistent */
+  --radius:20px;--radius-sm:12px;--maxw:1200px;
+  --font:'Inter',Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--b);color:var(--i)}
+
+/* IMPROVEMENT #2/#3: visible keyboard focus everywhere (accessibility) */
+:focus-visible{outline:3px solid var(--c);outline-offset:2px;border-radius:6px}
+
+/* IMPROVEMENT: skip link for keyboard/screen-reader users */
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--t);
+  padding:10px 14px;border-radius:0 0 10px 0;font-weight:800;z-index:20}
+.skip:focus{left:0}
+
+/* IMPROVEMENT: utility to hide text visually but keep it for screen readers */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+header{padding:46px 24px 36px;color:#fff;
+  background:radial-gradient(circle at 90% 5%,rgba(8,190,213,.35),transparent 28%),
+  linear-gradient(135deg,var(--t),#052d2e 75%,#011b1c)}
+.wrap,main{max-width:var(--maxw);margin:auto}
+.brand{font-size:24px;font-weight:900;letter-spacing:.12em}.brand span{color:var(--c)}
+/* IMPROVEMENT #7: fluid type — scales smoothly instead of one hard breakpoint */
+h1{font-size:clamp(30px,5vw,43px);margin:18px 0 10px;line-height:1.05}
+.lead{max-width:920px;color:#d9f8f9;font-size:clamp(15px,2.2vw,18px);line-height:1.5}
+.pills{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid #ffffff44;background:#ffffff18;border-radius:999px;
+  padding:8px 12px;font-size:13px;font-weight:700}
+
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--x);z-index:8}
+.tabs{max-width:var(--maxw);margin:auto;padding:10px 16px;display:flex;gap:8px;overflow:auto}
+.tab{border:0;border-radius:999px;padding:11px 15px;background:#e9f9fa;color:var(--t);
+  font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit;font-size:14px;
+  transition:background .2s ease,color .2s ease}
+.tab:hover{background:#d3f2f4}
+.tab[aria-selected="true"]{background:var(--t);color:#fff}
+
+main{padding:26px 16px 60px}
+.section{display:none}
+.section.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* IMPROVEMENT #3: auto-fit grid → 3/2/1 columns with NO media query */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+
+.card{background:#fff;border:1px solid var(--x);border-top:5px solid var(--c);
+  border-radius:var(--radius);padding:20px;box-shadow:var(--sh);
+  /* IMPROVEMENT #8: interactive hover lift */
+  transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,87,88,.16)}
+.card.thesis{border-top-color:var(--l)}
+.card h3{margin:0 0 9px}.card p{color:var(--m);line-height:1.5}
+.status{float:right;background:#efffde;color:#355700;border-radius:999px;
+  padding:6px 9px;font-size:12px;font-weight:800}
+.tag{display:inline-block;background:#e6fbfe;color:#00616a;border-radius:999px;
+  padding:6px 9px;font-size:12px;font-weight:800;margin:3px}
+.out{margin-top:13px;padding:12px;background:#f2fbfb;border-left:4px solid var(--c);
+  border-radius:11px;font-size:14px}
+.note{background:#fff8e9;border:1px solid #ffe1a8;border-radius:14px;padding:15px;
+  margin:16px 0;color:#674100}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.toolbar input,.toolbar select{padding:12px;border:1px solid var(--x);
+  border-radius:var(--radius-sm);background:#fff;min-width:220px;font-family:inherit;font-size:14px}
+
+/* IMPROVEMENT #4: horizontal-scroll wrapper keeps wide tables from breaking mobile */
+.table-scroll{overflow-x:auto;border-radius:16px;box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;background:#fff;min-width:560px}
+th,td{padding:12px;border-bottom:1px solid var(--x);text-align:left;vertical-align:top;font-size:14px}
+th{background:#e9f9fa;color:var(--t);text-transform:uppercase;font-size:12px;letter-spacing:.04em;
+  position:sticky;top:0}
+.priority{font-weight:900;color:var(--t)}
+a{color:#007d8d;font-weight:800;text-decoration:none}
+a:hover{text-decoration:underline}
+.code{font-family:Consolas,monospace;background:#052d2e;color:#dff;padding:14px;
+  border-radius:var(--radius-sm);overflow:auto;font-size:13px}
+.copy{background:#052d2e;color:#eaffff;padding:20px;border-radius:18px;
+  white-space:pre-wrap;line-height:1.55}
+.copybtn{border:0;border-radius:10px;background:var(--c);color:#073536;font-weight:900;
+  padding:11px 16px;cursor:pointer;font-family:inherit;margin-bottom:14px}
+.copybtn:hover{background:#06a9bd}
+.checklist li{margin:8px 0}
+footer{text-align:center;color:var(--m);padding:26px}
+
+/* IMPROVEMENT #6: reusable toast instead of alert() */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+  background:var(--t);color:#fff;padding:13px 20px;border-radius:12px;font-weight:800;
+  box-shadow:var(--sh);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:30}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:900px){h1{font-size:33px}}
+
+/* IMPROVEMENT #8: respect users who prefer less motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a href="#projects" class="skip">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <div class="brand">TD <span>SYNNEX</span></div>
+    <h1>Grace Gaynor | Portfolio &amp; Business Value</h1>
+    <p class="lead">I combine econometrics, analytics, business context, and responsible automation to make complex work easier to understand and act on. I am still building my experience, but I bring curiosity, disciplined analysis, and a strong bias toward creating practical tools that help TD SYNNEX teams and partners move forward.</p>
+    <div class="pills"><span class="pill">Econometrics</span><span class="pill">Antitrust</span><span class="pill">Power BI</span><span class="pill">Python</span><span class="pill">React / Node</span><span class="pill">AI agents</span><span class="pill">FP&amp;A enablement</span></div>
+  </div>
+</header>
+
+<!-- IMPROVEMENT #1: proper ARIA tablist with keyboard support -->
+<nav aria-label="Portfolio sections">
+  <div class="tabs" role="tablist" aria-label="Portfolio sections">
+    <button class="tab" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">My Portfolio</button>
+    <button class="tab" role="tab" id="tab-pvi-value" aria-controls="pvi-value" aria-selected="false" tabindex="-1">PVI Calculator Value</button>
+    <button class="tab" role="tab" id="tab-ai-builder" aria-controls="ai-builder" aria-selected="false" tabindex="-1">AI Builder Journey &amp; Access</button>
+    <button class="tab" role="tab" id="tab-software" aria-controls="software" aria-selected="false" tabindex="-1">Full Software List</button>
+    <button class="tab" role="tab" id="tab-vscode" aria-controls="vscode" aria-selected="false" tabindex="-1">VS Code Setup</button>
+    <button class="tab" role="tab" id="tab-links" aria-controls="links" aria-selected="false" tabindex="-1">Official Links</button>
+    <button class="tab" role="tab" id="tab-learning" aria-controls="learning" aria-selected="false" tabindex="-1">Learning Plan</button>
+    <button class="tab" role="tab" id="tab-business" aria-controls="business" aria-selected="false" tabindex="-1">Business Case</button>
+  </div>
+</nav>
+
+<main>
+<!-- PROJECTS -->
+<section class="section active" id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
+  <h2 class="sr-only">Projects</h2>
+  <div class="grid">
+    <div class="card thesis"><span class="status">Graduate Thesis</span><h3>Estimating Demand Elasticities to Model Geographic Market Boundaries</h3><p>Graduate econometrics thesis examining how estimated consumer substitution can help empirically define geographic antitrust market boundaries. Geocoded substitute locations and used log-log regression to estimate store-level demand, own-price elasticities, and cross-price relationships.</p><div><span class="tag">Spatial econometrics</span><span class="tag">Demand elasticity</span><span class="tag">Antitrust economics</span><span class="tag">Geocoding</span><span class="tag">R</span></div><div class="out"><b>Research contribution:</b> A replicable demand-modeling approach for measuring substitution across competing locations and supporting evidence-based geographic market analysis.</div></div>
+    <div class="card"><span class="status">Completed / Extendable</span><h3>Early-Career Attrition Econometric Analysis</h3><p>Attrition analysis using HRIS and mobility data with logistic regression and Cox survival modeling to examine internal mobility, skills development, and retention.</p><div><span class="tag">Regression</span><span class="tag">Survival analysis</span><span class="tag">HR analytics</span></div><div class="out"><b>Next build:</b> Recreate the workflow in Python and connect validated outputs to Power BI.</div></div>
+    <div class="card"><span class="status">Active</span><h3>LinkedIn Learning Engagement Analytics</h3><p>Organization-level and learner-level analysis of activation, completion, engagement, usage trends, dashboards, and actionable L&amp;D recommendations.</p><div><span class="tag">Learning analytics</span><span class="tag">Power BI</span><span class="tag">Data quality</span></div><div class="out"><b>Next build:</b> Automate refresh-ready preparation and reusable learner metrics.</div></div>
+    <div class="card thesis"><span class="status">Active Prototype</span><h3>PVI Performance Advisor</h3><p>A practical decision-support experience that brings DPV assessment data, PVI drivers, rebate thresholds, scenario planning, and clear next-step guidance into one governed workflow.</p><div><span class="tag">PVI</span><span class="tag">DPV upload</span><span class="tag">Scenario planning</span><span class="tag">Responsible AI</span></div><div class="out"><b>My contribution:</b> I translated a slow, error-prone manual workflow into a more accessible and repeatable product concept while keeping official PXP values separate from modeled planning estimates. <a href="#pvi-value" data-tab-link="pvi-value">See the business value →</a></div></div>
+    <div class="card"><span class="status">Active</span><h3>Attrition &amp; Mobility Power BI Dashboard</h3><p>Workforce dashboard using employee status, termination type, management-chain filters, attrition measures, mobility features, and organizational slicers.</p><div><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span></div><div class="out"><b>Next build:</b> Governed metric definitions, QA checks, and model documentation.</div></div>
+    <div class="card"><span class="status">Exploratory</span><h3>Pepsi vs. Coke Price &amp; Diversion Model</h3><p>Economics project exploring pricing, substitution, diversion ratios, and competitive effects between branded products.</p><div><span class="tag">Microeconomics</span><span class="tag">Scenario modeling</span><span class="tag">Visualization</span></div><div class="out"><b>Target:</b> User-adjustable scenarios, sensitivity analysis, and an interactive interface.</div></div>
+    <div class="card"><span class="status">In Progress</span><h3>Analytics Developer Portfolio</h3><p>GitHub-hosted portfolio documenting analytics projects, software requirements, technical learning, and the transition from analysis into application development.</p><div><span class="tag">HTML/CSS/JS</span><span class="tag">VS Code</span><span class="tag">GitHub Pages</span></div><div class="out"><b>Target:</b> Deploy as a URL and later migrate selected functionality to React and TypeScript.</div></div>
+  </div>
+  <div class="note"><b>My value:</b> I do not claim to have every answer. I add value by learning quickly, asking careful questions, connecting technical work to business needs, documenting assumptions, and turning one-time analysis into tools that other people can understand and reuse.</div>
+</section>
+
+
+<!-- PVI VALUE -->
+<section class="section" id="pvi-value" role="tabpanel" aria-labelledby="tab-pvi-value" tabindex="0" hidden>
+  <h2>PVI Performance Advisor: value created from a real business challenge</h2>
+  <p class="lead" style="color:var(--m);max-width:1000px">The project began with a clear operational problem: reviewing PVI data across portfolios required repetitive manual entry, was slow, and created opportunities for human error. I helped turn that need into a structured calculator and advisor experience designed for clearer conversations, faster analysis, and responsible scenario planning.</p>
+  <div class="grid">
+    <div class="card thesis"><h3>What the tool improves</h3><ul class="checklist"><li>Brings partner, portfolio, fiscal-month, category, and metric context into one view.</li><li>Separates official loaded PVI values from unofficial projections and what-if scenarios.</li><li>Explains score drivers, gaps to the next threshold, and potential areas for discussion.</li><li>Reduces dependence on repeatedly re-keying values across portfolio views.</li><li>Makes a complex methodology easier to explain to both technical and non-technical stakeholders.</li></ul></div>
+    <div class="card"><h3>Why it matters to TD SYNNEX</h3><ul class="checklist"><li><b>Partner experience:</b> supports clearer, more consistent conversations about current position and possible next steps.</li><li><b>Operational discipline:</b> creates a repeatable workflow with validation, documentation, and visible guardrails.</li><li><b>Decision support:</b> helps teams focus attention on PVI drivers and rebate thresholds without presenting modeled values as official results.</li><li><b>Scalability:</b> provides a foundation that can be tested, improved, and reused rather than remaining a one-off spreadsheet exercise.</li></ul></div>
+    <div class="card"><h3>What this says about how I work</h3><p>I listened to a difficult workflow, learned an unfamiliar Cisco program, and built toward a usable solution. My strength is not simply producing analysis. It is connecting data, user needs, business rules, communication, and governance so the result can become a practical product.</p><div class="out"><b>Asset to TD SYNNEX:</b> I bring quantitative training, comfort with ambiguity, thoughtful communication, and the initiative to move from “there is a problem” to a testable tool.</div></div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <span class="status">Recognition</span><h3>A meaningful signal of the project’s relevance</h3>
+    <p>I have been told that Cisco plans to name the service after me. I am grateful for that recognition and view it as a reflection of the collaborative problem-solving behind the project, not as a substitute for continued validation, governance, and team contribution.</p>
+    <div class="note"><b>Transparency note:</b> The naming statement is presented as recognition communicated to me and should be updated when formal naming or launch details are confirmed. The calculator remains an unofficial planning aid, and PXP remains the official source of truth for PVI results.</div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Project principles</h3><div class="grid"><div><b>Accuracy first</b><p>Do not invent scores, calculations, or weights.</p></div><div><b>Clear boundaries</b><p>Label official values separately from modeled estimates.</p></div><div><b>Useful explanation</b><p>Translate score drivers and thresholds into plain business language.</p></div><div><b>Human judgment</b><p>Use the tool to support, not replace, partner and stakeholder decisions.</p></div></div></div>
+</section>
+
+
+<!-- AI BUILDER JOURNEY -->
+<section class="section" id="ai-builder" role="tabpanel" aria-labelledby="tab-ai-builder" tabindex="0" hidden>
+  <h2>AI Builder Journey &amp; Access Request</h2>
+  <p class="lead" style="color:var(--m);max-width:1000px">I am requesting a governed AI builder environment that lets me progress from analytics and prompting into reusable applications, coding-assisted workflows, and responsible agents. The goal is not unrestricted access. It is role-based access to approved tools that support active TD SYNNEX projects, especially the PVI Performance Advisor.</p>
+  <div class="note"><b>Primary request:</b> Review and provide access, where approved and appropriately licensed, to the enterprise AI, coding-assistant, source-control, development, and agent-building capabilities below. For tools that are not currently approved, this is a request for formal evaluation rather than permission to use them with company information.</div>
+  <div class="grid">
+    <div class="card thesis"><span class="status">Foundation</span><h3>Enterprise AI &amp; agents</h3><p>Tools for grounded research, drafting, agent design, workflow experimentation, and governed business solutions.</p><div><span class="tag">Microsoft 365 Copilot</span><span class="tag">Copilot Chat</span><span class="tag">Copilot Cowork</span><span class="tag">Copilot Studio</span><span class="tag">Agent Builder</span><span class="tag">Approved Azure AI</span></div><div class="out"><b>Requested use:</b> Build and test agents with clear purpose, knowledge boundaries, verification expectations, escalation paths, and human review.</div></div>
+    <div class="card"><span class="status">Coding assistance</span><h3>AI-assisted development</h3><p>Tools discussed or explored for learning Python, building applications, explaining code, debugging, refactoring, documentation, and comparing approaches.</p><div><span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Claude Code</span><span class="tag">GitHub Copilot</span><span class="tag">VS Code AI extensions</span></div><div class="out"><b>Requested use:</b> Accelerate prototypes and skill development while requiring code review, testing, source validation, and approved data handling.</div></div>
+    <div class="card"><span class="status">Builder environment</span><h3>Development &amp; delivery</h3><p>A maintainable environment for moving analysis into versioned, documented internal tools.</p><div><span class="tag">Visual Studio Code</span><span class="tag">Git</span><span class="tag">Approved GitHub</span><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Postman</span></div><div class="out"><b>Requested use:</b> Version control, reproducible analytics, application development, APIs, testing, documentation, and collaboration.</div></div>
+    <div class="card"><span class="status">Evaluation</span><h3>Emerging builder tools</h3><p>Platforms and integration patterns worth evaluating when they offer a clear advantage and meet company security, licensing, and AI-governance requirements.</p><div><span class="tag">Cursor</span><span class="tag">Windsurf</span><span class="tag">MCP-enabled tools</span><span class="tag">Fabric Skills</span><span class="tag">Agent frameworks</span><span class="tag">AI code review</span></div><div class="out"><b>Request type:</b> Evaluation or sandbox access only where approved. No confidential, partner, customer, or employee data should be entered into an unapproved service.</div></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Business outcomes this access would support</h3><div class="grid"><div><b>Productize analysis</b><p>Turn validated methods into maintainable calculators, dashboards, APIs, and guided tools.</p></div><div><b>Reduce manual work</b><p>Prototype repeatable workflows for data preparation, documentation, testing, and reporting.</p></div><div><b>Improve partner enablement</b><p>Build clearer decision-support experiences around complex programs such as PVI.</p></div><div><b>Build internal capability</b><p>Develop practical AI, coding, source-control, and agent-design skills that can be applied across projects.</p></div></div></div>
+  <div class="card" style="margin-top:18px"><h3>Responsible-access commitments</h3><ul class="checklist"><li>Use only tools, models, environments, and data scopes approved through TD SYNNEX processes.</li><li>Keep humans responsible for validation, decisions, and final outputs.</li><li>Do not upload confidential, partner, customer, employee, or restricted information into unapproved tools.</li><li>Document assumptions, limitations, model use, testing, and data sources.</li><li>Separate official system values from projections, scenarios, and AI-generated recommendations.</li><li>Route new tools or materially different use cases through the appropriate security, licensing, and AI-governance review.</li></ul></div>
+  <div class="card" style="margin-top:18px"><h3>Manager / IT request wording</h3><button class="copybtn" id="copyAiBtn">Copy AI builder request</button><div class="copy" id="copyAiText">I am requesting role-based access to a governed AI builder environment to support active analytics and application-development work, including the PVI Performance Advisor. Requested capabilities include Microsoft 365 Copilot, Copilot Studio and an approved developer environment; Visual Studio Code, Git, approved GitHub access and GitHub Copilot; Python, Jupyter, Node.js, React, FastAPI and API-testing tools; and formal evaluation of ChatGPT, Claude, Claude Code, Cursor, Windsurf, MCP-enabled tooling and other AI coding assistants where company policy permits. The purpose is to convert validated analyses into reusable internal applications, reduce manual work, improve documentation and testing, and develop responsible AI and software-building capability. I am requesting approved, role-based access and sandbox evaluation, not unrestricted permissions. All use would follow TD SYNNEX security, licensing, data-classification, Responsible AI and AI RAMP requirements, with human review and no restricted data entered into unapproved services.</div></div>
+</section>
+
+<!-- FULL SOFTWARE LIST -->
+<section class="section" id="software" role="tabpanel" aria-labelledby="tab-software" tabindex="0" hidden>
+  <h2 class="sr-only">Full software list</h2>
+  <div class="toolbar">
+    <label class="sr-only" for="q">Search software</label>
+    <input id="q" placeholder="Search software, purpose, category...">
+    <label class="sr-only" for="cat">Filter by category</label>
+    <select id="cat"><option value="">All categories</option><option>Core</option><option>Data Science</option><option>Frontend</option><option>Backend/API</option><option>BI</option><option>AI</option><option>DevOps</option><option>VS Code Extension</option></select>
+    <label class="sr-only" for="pri">Filter by priority</label>
+    <select id="pri"><option value="">All priorities</option><option>Required</option><option>Recommended</option><option>Approval Review</option></select>
+  </div>
+  <div class="table-scroll">
+  <table id="sw"><thead><tr><th>Software / Package</th><th>Category</th><th>Priority</th><th>Purpose</th></tr></thead><tbody>
+    <tr><td>Visual Studio Code</td><td>Core</td><td class="priority">Required</td><td>Primary IDE for Python, JavaScript, React, notebooks, Git, and docs.</td></tr>
+    <tr><td>Python 3.x</td><td>Core</td><td class="priority">Required</td><td>Analysis, econometrics, automation, APIs, and prototypes.</td></tr>
+    <tr><td>pip / venv</td><td>Core</td><td class="priority">Required</td><td>Package management and isolated environments.</td></tr>
+    <tr><td>Jupyter</td><td>Data Science</td><td class="priority">Recommended</td><td>Interactive notebooks for reproducible analysis.</td></tr>
+    <tr><td>pandas</td><td>Data Science</td><td class="priority">Required</td><td>Data cleaning, joins, grouping, and validation.</td></tr>
+    <tr><td>numpy</td><td>Data Science</td><td class="priority">Required</td><td>Numerical computing and arrays.</td></tr>
+    <tr><td>scipy</td><td>Data Science</td><td class="priority">Recommended</td><td>Scientific computing, statistics, optimization.</td></tr>
+    <tr><td>statsmodels</td><td>Data Science</td><td class="priority">Required</td><td>Regression, econometrics, time series, hypothesis testing.</td></tr>
+    <tr><td>scikit-learn</td><td>Data Science</td><td class="priority">Recommended</td><td>Machine learning and model evaluation.</td></tr>
+    <tr><td>lifelines</td><td>Data Science</td><td class="priority">Recommended</td><td>Survival analysis and retention modeling.</td></tr>
+    <tr><td>matplotlib</td><td>Data Science</td><td class="priority">Required</td><td>Static charts and technical plots.</td></tr>
+    <tr><td>seaborn</td><td>Data Science</td><td class="priority">Recommended</td><td>Statistical visualization.</td></tr>
+    <tr><td>plotly</td><td>Data Science</td><td class="priority">Recommended</td><td>Interactive charts for dashboards and HTML reports.</td></tr>
+    <tr><td>openpyxl</td><td>Data Science</td><td class="priority">Required</td><td>Read/write Excel from Python.</td></tr>
+    <tr><td>pyarrow</td><td>Data Science</td><td class="priority">Recommended</td><td>Efficient analytics formats and larger datasets.</td></tr>
+    <tr><td>geopandas / geopy</td><td>Data Science</td><td class="priority">Recommended</td><td>Geocoding and spatial analysis for demand/market boundary work.</td></tr>
+    <tr><td>Node.js LTS</td><td>Frontend</td><td class="priority">Required</td><td>JavaScript runtime for React apps, local servers, and tooling.</td></tr>
+    <tr><td>npm</td><td>Frontend</td><td class="priority">Required</td><td>Default JavaScript package manager (bundled with Node).</td></tr>
+    <tr><td>pnpm</td><td>Frontend</td><td class="priority">Recommended</td><td>Faster, disk-efficient package manager.</td></tr>
+    <tr><td>React</td><td>Frontend</td><td class="priority">Required</td><td>Build UIs, calculators, and analytics portals.</td></tr>
+    <tr><td>react-dom</td><td>Frontend</td><td class="priority">Required</td><td>Render React apps in the browser.</td></tr>
+    <tr><td>TypeScript</td><td>Frontend</td><td class="priority">Recommended</td><td>Type safety and maintainability.</td></tr>
+    <tr><td>Vite</td><td>Frontend</td><td class="priority">Recommended</td><td>Fast React dev server and build tool.</td></tr>
+    <tr><td>React Router</td><td>Frontend</td><td class="priority">Recommended</td><td>Routing for multi-page apps.</td></tr>
+    <tr><td>Material UI</td><td>Frontend</td><td class="priority">Recommended</td><td>Enterprise-ready UI components.</td></tr>
+    <tr><td>Tailwind CSS</td><td>Frontend</td><td class="priority">Recommended</td><td>Rapid responsive styling.</td></tr>
+    <tr><td>ESLint</td><td>Frontend</td><td class="priority">Recommended</td><td>JS/TS code quality checks.</td></tr>
+    <tr><td>Prettier</td><td>Frontend</td><td class="priority">Recommended</td><td>Consistent code formatting.</td></tr>
+    <tr><td>FastAPI</td><td>Backend/API</td><td class="priority">Recommended</td><td>Python APIs for calculators and model services.</td></tr>
+    <tr><td>Uvicorn</td><td>Backend/API</td><td class="priority">Recommended</td><td>Local dev server for FastAPI.</td></tr>
+    <tr><td>Pydantic</td><td>Backend/API</td><td class="priority">Recommended</td><td>Data validation for APIs and AI workflows.</td></tr>
+    <tr><td>Streamlit</td><td>Backend/API</td><td class="priority">Recommended</td><td>Quick internal analytics web apps.</td></tr>
+    <tr><td>Dash</td><td>Backend/API</td><td class="priority">Recommended</td><td>Python-based analytical web apps.</td></tr>
+    <tr><td>Postman</td><td>Backend/API</td><td class="priority">Recommended</td><td>API testing and debugging.</td></tr>
+    <tr><td>SQLite</td><td>Backend/API</td><td class="priority">Recommended</td><td>Lightweight local relational database.</td></tr>
+    <tr><td>PostgreSQL Client Tools</td><td>Backend/API</td><td class="priority">Approval Review</td><td>Relational DB client if approved systems use PostgreSQL.</td></tr>
+    <tr><td>Power BI Desktop</td><td>BI</td><td class="priority">Required</td><td>Dashboards, Power Query, DAX, and data modeling.</td></tr>
+    <tr><td>DAX Studio</td><td>BI</td><td class="priority">Recommended</td><td>DAX testing and model performance analysis.</td></tr>
+    <tr><td>Tabular Editor</td><td>BI</td><td class="priority">Recommended</td><td>Advanced semantic model editing.</td></tr>
+    <tr><td>Microsoft Fabric</td><td>BI</td><td class="priority">Approval Review</td><td>Cloud analytics workspace for governed data and BI.</td></tr>
+    <tr><td>Copilot Studio</td><td>AI</td><td class="priority">Approval Review</td><td>Build internal agents and assistants.</td></tr>
+    <tr><td>Azure AI Foundry</td><td>AI</td><td class="priority">Approval Review</td><td>AI app/model orchestration experimentation if approved.</td></tr>
+    <tr><td>Git</td><td>DevOps</td><td class="priority">Required</td><td>Version control and reproducibility.</td></tr>
+    <tr><td>GitHub Enterprise / Approved GitHub</td><td>DevOps</td><td class="priority">Approval Review</td><td>Repositories, collaboration, issues, and reviews.</td></tr>
+    <tr><td>Docker Desktop</td><td>DevOps</td><td class="priority">Approval Review</td><td>Containerized local environments.</td></tr>
+    <tr><td>Windows Subsystem for Linux 2</td><td>DevOps</td><td class="priority">Approval Review</td><td>Linux-based dev on Windows.</td></tr>
+    <tr><td>PowerShell 7</td><td>DevOps</td><td class="priority">Recommended</td><td>Modern scripting and automation.</td></tr>
+    <tr><td>Python Extension</td><td>VS Code Extension</td><td class="priority">Required</td><td>Python IntelliSense, run, debug, environments.</td></tr>
+    <tr><td>Pylance</td><td>VS Code Extension</td><td class="priority">Required</td><td>Python language server.</td></tr>
+    <tr><td>Jupyter Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Notebooks inside VS Code.</td></tr>
+    <tr><td>ESLint Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>JS/TS linting in editor.</td></tr>
+    <tr><td>Prettier Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Formatting in editor.</td></tr>
+    <tr><td>GitLens</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Git history and insights.</td></tr>
+    <tr><td>GitHub Pull Requests</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>PRs and issues inside VS Code.</td></tr>
+    <tr><td>Postman Extension</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Test APIs from VS Code.</td></tr>
+    <tr><td>Docker Extension</td><td>VS Code Extension</td><td class="priority">Approval Review</td><td>Container management in VS Code.</td></tr>
+    <tr><td>Markdown All in One</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Documentation and READMEs.</td></tr>
+    <tr><td>Mermaid Markdown Preview</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Architecture and workflow diagrams.</td></tr>
+    <tr><td>Material Icon Theme</td><td>VS Code Extension</td><td class="priority">Recommended</td><td>Readable file icons.</td></tr>
+  </tbody></table>
+  </div>
+</section>
+
+<!-- VS CODE -->
+<section class="section" id="vscode" role="tabpanel" aria-labelledby="tab-vscode" tabindex="0" hidden>
+  <h2 class="sr-only">VS Code setup</h2>
+  <div class="grid">
+    <div class="card"><h3>Extension bundle</h3><ul class="checklist"><li>Python + Pylance</li><li>Jupyter</li><li>ESLint + Prettier</li><li>GitLens + GitHub Pull Requests</li><li>Postman</li><li>Docker (if approved)</li><li>Markdown All in One + Mermaid</li><li>PowerShell + Material Icon Theme</li></ul></div>
+    <div class="card"><h3>Recommended folders</h3><ul class="checklist"><li><b>analytics-python</b></li><li><b>react-apps</b></li><li><b>api-services</b></li><li><b>powerbi-docs</b></li><li><b>agent-prototypes</b></li></ul></div>
+    <div class="card"><h3>Validate installation</h3><pre class="code">python --version
+pip --version
+node --version
+npm --version
+git --version
+code --version</pre></div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Suggested settings.json</h3><pre class="code">{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.defaultInterpreterPath": "python",
+  "python.analysis.typeCheckingMode": "basic",
+  "files.autoSave": "afterDelay",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "markdown.preview.breaks": true
+}</pre></div>
+</section>
+
+<!-- LINKS -->
+<section class="section" id="links" role="tabpanel" aria-labelledby="tab-links" tabindex="0" hidden>
+  <h2 class="sr-only">Official links</h2>
+  <div class="table-scroll">
+  <table><thead><tr><th>Tool</th><th>Official resource</th></tr></thead><tbody>
+    <tr><td>VS Code Enterprise</td><td><a href="https://code.visualstudio.com/docs/enterprise/overview" target="_blank" rel="noopener">code.visualstudio.com/docs/enterprise</a></td></tr>
+    <tr><td>VS Code Python</td><td><a href="https://code.visualstudio.com/docs/python/python-tutorial" target="_blank" rel="noopener">code.visualstudio.com/docs/python</a></td></tr>
+    <tr><td>VS Code JavaScript</td><td><a href="https://code.visualstudio.com/Docs/languages/javascript" target="_blank" rel="noopener">code.visualstudio.com/docs/languages/javascript</a></td></tr>
+    <tr><td>Node.js LTS</td><td><a href="https://nodejs.org/en/download" target="_blank" rel="noopener">nodejs.org/en/download</a></td></tr>
+    <tr><td>React</td><td><a href="https://react.dev/" target="_blank" rel="noopener">react.dev</a></td></tr>
+    <tr><td>React Learn</td><td><a href="https://react.dev/learn" target="_blank" rel="noopener">react.dev/learn</a></td></tr>
+    <tr><td>Power BI Desktop</td><td><a href="https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop" target="_blank" rel="noopener">learn.microsoft.com/power-bi</a></td></tr>
+    <tr><td>Microsoft Fabric</td><td><a href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank" rel="noopener">microsoft.com/microsoft-fabric</a></td></tr>
+    <tr><td>Copilot Studio</td><td><a href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio" target="_blank" rel="noopener">microsoft.com/copilot-studio</a></td></tr>
+    <tr><td>Azure AI Foundry</td><td><a href="https://azure.microsoft.com/en-us/products/ai-foundry" target="_blank" rel="noopener">azure.microsoft.com/ai-foundry</a></td></tr>
+    <tr><td>Postman</td><td><a href="https://www.postman.com/downloads/" target="_blank" rel="noopener">postman.com/downloads</a></td></tr>
+    <tr><td>Docker Desktop</td><td><a href="https://docs.docker.com/desktop/setup/install/windows-install/" target="_blank" rel="noopener">docs.docker.com/desktop</a></td></tr>
+    <tr><td>Git</td><td><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a></td></tr>
+    <tr><td>GitHub Enterprise</td><td><a href="https://github.com/enterprise" target="_blank" rel="noopener">github.com/enterprise</a></td></tr>
+  </tbody></table>
+  </div>
+</section>
+
+<!-- LEARNING PLAN -->
+<section class="section" id="learning" role="tabpanel" aria-labelledby="tab-learning" tabindex="0" hidden>
+  <h2 class="sr-only">Learning plan</h2>
+  <div class="note"><b>Positioning:</b> Developing Grace into an AI-enabled economist and data analyst who combines statistical analysis, forecasting, automation, dashboards, and Copilot agents to deliver business insights and intelligent solutions — building on her economics background rather than pivoting into traditional software development.</div>
+  <div class="table-scroll">
+  <table><thead><tr><th>Category</th><th>Resource</th><th>Type</th><th>Why It Fits Grace</th></tr></thead><tbody>
+    <tr><td>Python Fundamentals</td><td>Python Crash Course (Eric Matthes)</td><td class="priority">Book</td><td>Best practical introduction to Python. Covers programming fundamentals, data visualization, and real projects. Excellent transition from R to Python.</td></tr>
+    <tr><td>Python Productivity</td><td>Automate the Boring Stuff with Python (Al Sweigart)</td><td class="priority">Book</td><td>Helps automate reports, spreadsheets, file processing, data collection, and repetitive analyst tasks.</td></tr>
+    <tr><td>Databases &amp; Data Modeling</td><td>Database Design for Mere Mortals (Michael Hernandez)</td><td class="priority">Book</td><td>Builds strong data modeling and database fundamentals that will help with analytics, BI, dashboards, and AI applications.</td></tr>
+    <tr><td>AI Agents &amp; Copilot</td><td>AI Agents in Action (Michael Lanham)</td><td class="priority">Book</td><td>Practical introduction to AI agents, RAG, memory, tools, and orchestration. One of the better books for moving into Microsoft Copilot and agentic AI.</td></tr>
+    <tr><td>Free Video Training</td><td>CS50 Python (Harvard)</td><td class="priority">Free Course</td><td>Excellent instructor, structured learning, exercises, and projects. A great first Python course for technically-minded learners.</td></tr>
+    <tr><td>Paid Video Training</td><td>DataCamp Python Developer Track</td><td class="priority">Paid Path</td><td>Particularly good for economists and analysts. Combines Python, Pandas, SQL, and visualization.</td></tr>
+    <tr><td>Paid Microsoft Training</td><td>LinkedIn Learning: Career Essentials in Generative AI (Microsoft &amp; LinkedIn)</td><td class="priority">Paid Path</td><td>Good foundation in AI, prompting, Copilot, and AI-assisted workflows.</td></tr>
+    <tr><td>Microsoft Learning</td><td>Developing AI Agents in Teams</td><td class="priority">Internal Training</td><td>Directly aligns with Microsoft's strategy around agents and Copilot extensibility.</td></tr>
+    <tr><td>Microsoft Learning</td><td>Mastering Model Context Protocol (MCP)</td><td class="priority">Internal Training</td><td>Introduces MCP concepts that are increasingly important in enterprise AI integration.</td></tr>
+    <tr><td>Microsoft Learning</td><td>Advanced LLMs with RAG: Practical Projects for AI Applications</td><td class="priority">Internal Training</td><td>Helps bridge analytics skills into enterprise AI solutions.</td></tr>
+    <tr><td>Certification</td><td>Microsoft Applied Skills: Build AI Apps with Azure OpenAI</td><td class="priority">Certification</td><td>Practical AI credential focused on building AI-powered applications.</td></tr>
+    <tr><td>Certification</td><td>AI-102: Azure AI Engineer Associate</td><td class="priority">Certification</td><td>Strong foundation in Azure AI, OpenAI, RAG, prompting, and intelligent application development.</td></tr>
+    <tr><td>Certification</td><td>PL-300: Power BI Data Analyst Associate</td><td class="priority">Certification</td><td>Very valuable for economists, business analysts, forecasting specialists, and dashboard developers.</td></tr>
+    <tr><td>Certification</td><td>DP-900: Azure Data Fundamentals</td><td class="priority">Certification</td><td>Introduces databases, cloud data services, analytics, and data engineering concepts.</td></tr>
+    <tr><td>Certification</td><td>AI-900: Azure AI Fundamentals</td><td class="priority">Certification</td><td>Quick win establishing AI literacy and Microsoft AI fundamentals.</td></tr>
+  </tbody></table>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>Suggested 6-Month Roadmap</h3>
+  <div class="table-scroll">
+  <table><thead><tr><th>Phase</th><th>Focus</th></tr></thead><tbody>
+    <tr><td>Month 1</td><td>Python Crash Course + CS50 Python</td></tr>
+    <tr><td>Month 2</td><td>Automate the Boring Stuff + AI-900</td></tr>
+    <tr><td>Month 3</td><td>Database Design for Mere Mortals + DP-900</td></tr>
+    <tr><td>Month 4</td><td>Power BI, PL-300 preparation, dashboard projects</td></tr>
+    <tr><td>Month 5</td><td>AI Agents in Action + Microsoft Agent Training</td></tr>
+    <tr><td>Month 6</td><td>RAG, MCP, Copilot Agents, AI-102 preparation</td></tr>
+  </tbody></table>
+  </div>
+  </div>
+</section>
+
+<!-- BUSINESS -->
+<section class="section" id="business" role="tabpanel" aria-labelledby="tab-business" tabindex="0" hidden>
+  <h2 class="sr-only">Business case</h2>
+  <button class="copybtn" id="copyBtn">Copy justification</button>
+  <div class="copy" id="copytext">I am requesting a consolidated enterprise development environment to support my current and planned analytics projects, building on the econometric foundation from my completed graduate thesis. These include demand-elasticity modeling for geographic antitrust market definition, early-career attrition analysis, LinkedIn Learning engagement analytics, an attrition and mobility Power BI dashboard, a Partner Value Index calculator, pricing and diversion modeling, and an analytics developer portfolio.
+The requested environment includes a developer-ready Windows workstation (32 GB RAM, 1 TB SSD, dual monitors), Visual Studio Code, Python, Node.js, React development tools, Git, approved GitHub access, Power BI Desktop, API development and testing tools, and approved Python/JavaScript package access. Where cloud, AI, container, database, or third-party tools require additional governance, I am requesting formal review and role-based access rather than unrestricted permissions.
+This consolidated setup would allow me to turn research and one-time analyses into reproducible analytics workflows, governed dashboards, documented calculation tools, internal applications, and responsible AI-enabled prototypes while reducing repeated individual software requests.
+Alongside the environment request, I am pursuing a structured six-month learning plan (Python fundamentals, database design, Power BI, and AI agent/Copilot development) leading toward AI-900, DP-900, PL-300, and AI-102 certifications, so that the tooling and skill-building progress together.</div>
+</section>
+</main>
+
+<footer>Grace Gaynor portfolio concept for internal discussion. Confirm TD SYNNEX and Cisco branding, naming, licensing, security, data handling, AI governance, and publication approval before external sharing.</footer>
+
+<!-- IMPROVEMENT #6: toast element -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* IMPROVEMENT #11: unobtrusive JS — no inline onclick, behavior lives here */
+(function(){
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+  function activate(id, setFocus){
+    tabs.forEach(t=>{
+      const on = t.getAttribute('aria-controls')===id;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      if(on && setFocus) t.focus();
+    });
+    panels.forEach(p=>{
+      const on = p.id===id;
+      p.classList.toggle('active', on);
+      p.hidden = !on;
+    });
+    if(location.hash.slice(1)!==id) history.replaceState(null,'','#'+id);
+  }
+
+  document.querySelectorAll('[data-tab-link]').forEach(link=>{ link.addEventListener('click', e=>{ e.preventDefault(); activate(link.getAttribute('data-tab-link')); }); });
+  tabs.forEach((tab,i)=>{
+    tab.addEventListener('click', ()=>activate(tab.getAttribute('aria-controls')));
+    /* IMPROVEMENT #1: arrow-key navigation between tabs (WAI-ARIA pattern) */
+    tab.addEventListener('keydown', e=>{
+      let n = null;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown') n = (i+1)%tabs.length;
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp') n = (i-1+tabs.length)%tabs.length;
+      else if(e.key==='Home') n = 0;
+      else if(e.key==='End') n = tabs.length-1;
+      if(n!==null){ e.preventDefault(); activate(tabs[n].getAttribute('aria-controls'), true); }
+    });
+  });
+
+  /* IMPROVEMENT #12: sync tabs with browser back/forward */
+  window.addEventListener('hashchange', ()=>{
+    const id = location.hash.slice(1);
+    if(document.getElementById(id)) activate(id);
+  });
+
+  /* deep-link support on first load */
+  const start = location.hash.slice(1);
+  if(start && document.getElementById(start)) activate(start);
+
+  /* --- software table filter (same logic, now wired via listeners) --- */
+  const q=document.getElementById('q'), cat=document.getElementById('cat'), pri=document.getElementById('pri');
+  function filterRows(){
+    const qv=q.value.toLowerCase(), cv=cat.value.toLowerCase(), pv=pri.value.toLowerCase();
+    document.querySelectorAll('#sw tbody tr').forEach(r=>{
+      const t=r.innerText.toLowerCase(),
+            rc=r.cells[1].innerText.toLowerCase(),
+            rp=r.cells[2].innerText.toLowerCase();
+      r.style.display=(t.includes(qv) && (!cv||rc===cv) && (!pv||rp===pv))?'':'none';
+    });
+  }
+  [q,cat,pri].forEach(el=>el && el.addEventListener('input', filterRows));
+
+  /* --- toast helper reused by copy action --- */
+  const toast=document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent=msg; toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t=setTimeout(()=>toast.classList.remove('show'),2200);
+  }
+  const copyAiBtn=document.getElementById('copyAiBtn');
+  if(copyAiBtn) copyAiBtn.addEventListener('click', async ()=>{
+    try{ await navigator.clipboard.writeText(document.getElementById('copyAiText').innerText); showToast('AI builder request copied'); }
+    catch(e){ showToast('Copy failed — select the text manually'); }
+  });
+  document.getElementById('copyBtn').addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(document.getElementById('copytext').innerText);
+      showToast('✓ Business justification copied');
+    }catch(e){ showToast('Copy failed — select the text manually'); }
+  });
+})();
+</script>
+</body>
+</html>
